@@ -25,19 +25,6 @@ let foodPosition = {
 };
 
 let move;
-// document.addEventListener("keydown", function(event) {
-//   let keyCode = event.keyCode;
-
-//   if (keyCode === 37 && move !== "RIGHT") {
-//     move = "LEFT";
-//   } else if (keyCode === 38 && move !== "DOWN") {
-//     move = "UP";
-//   } else if (keyCode === 39 && move !== "LEFT") {
-//     move = "RIGHT";
-//   } else if (keyCode === 40 && move !== "UP") {
-//     move = "DOWN";
-//   }
-// });
 
 let up = document.getElementById("up");
 let left = document.getElementById("left");
