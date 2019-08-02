@@ -10,7 +10,7 @@ const food = new Image();
 food.src = "img/food.png";
 
 const scoreBoard = new Image();
-scoreBoard.src = "img/scoreBoard.png";
+scoreBoard.src = "img/scoreBoard2.png";
 let score = 0;
 
 let snake = [];
@@ -21,7 +21,7 @@ snake[0] = {
 
 let foodPosition = {
   x: Math.floor(Math.random() * gridSize) * gridSize,
-  y: Math.floor(Math.random() * gridSize) * gridSize + 100
+  y: Math.floor(Math.random() * gridSize) * gridSize + 50
 };
 
 let move;
@@ -66,7 +66,7 @@ function collision(head, snakeBody) {
 
 function drawSnake() {
   // buat background, dan kosongkan layar kembali
-  ctx.drawImage(backGround, 0, 100);
+  ctx.drawImage(backGround, 0, 50);
   ctx.drawImage(food, foodPosition.x, foodPosition.y);
   ctx.drawImage(scoreBoard, 0, 0);
 
@@ -91,7 +91,7 @@ function drawSnake() {
 
     foodPosition = {
       x: Math.floor(Math.random() * gridSize) * gridSize,
-      y: Math.floor(Math.random() * gridSize) * gridSize + 100
+      y: Math.floor(Math.random() * gridSize) * gridSize + 50
     };
   } else snake.pop();
 
@@ -106,8 +106,8 @@ function drawSnake() {
   if (
     snakeX < 0 ||
     snakeX > 20 * gridSize - gridSize ||
-    snakeY < 100 ||
-    snakeY > 20 * gridSize - gridSize + 100 ||
+    snakeY < 50 ||
+    snakeY > 20 * gridSize - gridSize + 50 ||
     collision(snakeHead, snake)
   )
     clearInterval(game);
@@ -115,7 +115,7 @@ function drawSnake() {
   // show score
   ctx.fillStyle = "white";
   ctx.font = "30px Changa one";
-  ctx.fillText(`Your score : ${score}`, gridSize, 3 * gridSize);
+  ctx.fillText(`Your score : ${score}`, gridSize, 1.7 * gridSize);
 }
 
 let game = setInterval(drawSnake, 200);
