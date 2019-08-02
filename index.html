@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Final Project Phase 0</title>
+    <style>
+      html {
+        background: none;
+      }
+      canvas {
+        margin: auto;
+        display: block;
+        margin-bottom: 20px;
+      }
+      body {
+        background-color: black;
+        margin: 0;
+      }
+      #navButton {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        grid-template-rows: auto;
+        grid-template-areas:
+          ". up ."
+          "left . right"
+          ". down .";
+      }
+      #up {
+        grid-area: up;
+      }
+      #left {
+        grid-area: left;
+      }
+      #right {
+        grid-area: right;
+      }
+      #down {
+        grid-area: down;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="snake" width="400" height="500"></canvas>
+
+    <div id="navButton">
+      <a id="up">
+        <img src="./img/buttonUp.png" width="50px" />
+      </a>
+      <a id="left">
+        <img src="./img/buttonLeft.png" width="50px" />
+      </a>
+      <a id="right">
+        <img src="./img/buttonRight.png" width="50px" />
+      </a>
+      <a id="down">
+        <img src="./img/buttonDown.png" width="50px" />
+      </a>
+    </div>
+
+    <script src="snake.js"></script>
+  </body>
+</html>
