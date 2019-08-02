@@ -62,6 +62,9 @@ function drawSnake() {
   for (let i = 0; i < snake.length; i++) {
     ctx.fillStyle = "black";
     ctx.fillRect(snake[i].x, snake[i].y, gridSize, gridSize);
+
+    ctx.strokeStyle = "#9BCB9B";
+    ctx.strokeRect(snake[i].x, snake[i].y, gridSize, gridSize);
   }
 
   // posisi awal
@@ -104,9 +107,9 @@ function drawSnake() {
   }
 
   // show score
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.font = "30px pixel";
-  ctx.fillText(`Your score : ${score}`, gridSize, 2 * gridSize);
+  ctx.fillText(`SCORE : ${score}`, gridSize, 2 * gridSize);
 }
 
 let game = setInterval(drawSnake, 200);
