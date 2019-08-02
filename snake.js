@@ -28,6 +28,7 @@ let isGameOver = false;
 
 let move;
 
+// keyboard control
 document.addEventListener("keydown", function(event) {
   let key = event.keyCode;
   if (key == 37 && move != "RIGHT") {
@@ -41,6 +42,7 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+// touch control
 let up = document.getElementById("up");
 let left = document.getElementById("left");
 let right = document.getElementById("right");
