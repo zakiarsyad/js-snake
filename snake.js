@@ -21,23 +21,12 @@ snake[0] = {
 
 let foodPosition = {
   x: Math.floor(Math.random() * gridSize) * gridSize,
-  y: Math.floor(Math.random() * gridSize) * gridSize + 100
+  y: Math.floor(Math.random() * gridSize) * gridSize + 60
 };
 
-let move;
-// document.addEventListener("keydown", function(event) {
-//   let keyCode = event.keyCode;
+let isGameOver = false;
 
-//   if (keyCode === 37 && move !== "RIGHT") {
-//     move = "LEFT";
-//   } else if (keyCode === 38 && move !== "DOWN") {
-//     move = "UP";
-//   } else if (keyCode === 39 && move !== "LEFT") {
-//     move = "RIGHT";
-//   } else if (keyCode === 40 && move !== "UP") {
-//     move = "DOWN";
-//   }
-// });
+let move;
 
 let up = document.getElementById("up");
 let left = document.getElementById("left");
@@ -66,7 +55,7 @@ function collision(head, snakeBody) {
 
 function drawSnake() {
   // buat background, dan kosongkan layar kembali
-  ctx.drawImage(backGround, 0, 100);
+  ctx.drawImage(backGround, 0, 60);
   ctx.drawImage(food, foodPosition.x, foodPosition.y);
   ctx.drawImage(scoreBoard, 0, 0);
 
@@ -91,7 +80,7 @@ function drawSnake() {
 
     foodPosition = {
       x: Math.floor(Math.random() * gridSize) * gridSize,
-      y: Math.floor(Math.random() * gridSize) * gridSize + 100
+      y: Math.floor(Math.random() * gridSize) * gridSize + 60
     };
   } else snake.pop();
 
@@ -106,16 +95,26 @@ function drawSnake() {
   if (
     snakeX < 0 ||
     snakeX > 20 * gridSize - gridSize ||
-    snakeY < 100 ||
-    snakeY > 20 * gridSize - gridSize + 100 ||
+    snakeY < 60 ||
+    snakeY > 20 * gridSize - gridSize + 60 ||
     collision(snakeHead, snake)
-  )
+  ) {
+    isGameOver = true;
     clearInterval(game);
+  }
 
   // show score
   ctx.fillStyle = "white";
-  ctx.font = "30px Changa one";
-  ctx.fillText(`Your score : ${score}`, gridSize, 3 * gridSize);
+  ctx.font = "30px pixel";
+  ctx.fillText(`Your score : ${score}`, gridSize, 2 * gridSize);
 }
 
 let game = setInterval(drawSnake, 200);
+
+function gameOver() {
+  ctx.fillStyle = "black";
+  ctx.font = "50px pixel";
+  ctx.fillText(`GAMEOVER`, 200, 200);
+}
+
+if (isGameOver) gameOver();
