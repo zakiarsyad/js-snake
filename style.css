@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "pixelregular";
+  src: url("font/pixel-webfont.woff2") format("woff2"),
+    url("font/pixel-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+canvas {
+  margin: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+body {
+  background-color: #9bcb9b;
+  margin: 0;
+}
+#navButton {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+}
+#up {
+  grid-area: up;
+}
+#left {
+  grid-area: left;
+}
+#right {
+  grid-area: right;
+}
+#down {
+  grid-area: down;
+}

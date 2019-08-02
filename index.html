@@ -4,49 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Final Project Phase 0</title>
-    <style>
-      @font-face {
-        font-family: "pixelregular";
-        src: url("pixel-webfont.woff2") format("woff2"),
-          url("pixel-webfont.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-      }
-      html {
-        background: none;
-      }
-      canvas {
-        margin: auto;
-        display: block;
-        margin-bottom: 20px;
-      }
-      body {
-        background-color: #9bcb9b;
-        margin: 0;
-      }
-      #navButton {
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 50px 50px 50px;
-        grid-template-rows: auto;
-        grid-template-areas:
-          ". up ."
-          "left . right"
-          ". down .";
-      }
-      #up {
-        grid-area: up;
-      }
-      #left {
-        grid-area: left;
-      }
-      #right {
-        grid-area: right;
-      }
-      #down {
-        grid-area: down;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <canvas id="snake" width="400" height="460"></canvas>

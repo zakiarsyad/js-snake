@@ -5,13 +5,18 @@ const gridSize = 20;
 
 const backGround = new Image();
 backGround.src = "img/backGround.png";
-
 const food = new Image();
 food.src = "img/food.png";
-
 const scoreBoard = new Image();
 scoreBoard.src = "img/scoreBoard.png";
+
 let score = 0;
+let game;
+
+// set sound effect
+const moveEffect = new Audio("audio/move.mp3");
+const eatEffect = new Audio("audio/eat.mp3");
+const deadEffect = new Audio("audio/dead.mp3");
 
 let snake = [];
 snake[0] = {
@@ -24,8 +29,6 @@ let foodPosition = {
   y: Math.floor(Math.random() * gridSize) * gridSize + 60
 };
 
-let isGameOver = false;
-
 let move;
 
 // keyboard control
@@ -33,12 +36,16 @@ document.addEventListener("keydown", function(event) {
   let key = event.keyCode;
   if (key == 37 && move != "RIGHT") {
     move = "LEFT";
+    moveEffect.play();
   } else if (key == 38 && move != "DOWN") {
     move = "UP";
+    moveEffect.play();
   } else if (key == 39 && move != "LEFT") {
     move = "RIGHT";
+    moveEffect.play();
   } else if (key == 40 && move != "UP") {
     move = "DOWN";
+    moveEffect.play();
   }
 });
 
@@ -50,15 +57,19 @@ let down = document.getElementById("down");
 
 up.addEventListener("click", function(event) {
   move = "UP";
+  moveEffect.play();
 });
 left.addEventListener("click", function(event) {
   move = "LEFT";
+  moveEffect.play();
 });
 right.addEventListener("click", function(event) {
   move = "RIGHT";
+  moveEffect.play();
 });
 down.addEventListener("click", function(event) {
   move = "DOWN";
+  moveEffect.play();
 });
 
 function collision(head, snakeBody) {
@@ -94,6 +105,7 @@ function drawSnake() {
 
   // jika bertemu makanan
   if (snakeX == foodPosition.x && snakeY == foodPosition.y) {
+    eatEffect.play();
     score++;
 
     foodPosition = {
@@ -117,22 +129,33 @@ function drawSnake() {
     snakeY > 20 * gridSize - gridSize + 60 ||
     collision(snakeHead, snake)
   ) {
-    isGameOver = true;
+    deadEffect.play();
     clearInterval(game);
+    gameOver();
   }
 
   // show score
   ctx.fillStyle = "black";
-  ctx.font = "30px pixel";
+  ctx.font = "30px pixelregular";
+  ctx.textAlign = "left";
   ctx.fillText(`SCORE : ${score}`, gridSize, 2 * gridSize);
 }
 
-let game = setInterval(drawSnake, 200);
-
 function gameOver() {
   ctx.fillStyle = "black";
-  ctx.font = "50px pixel";
-  ctx.fillText(`GAMEOVER`, 200, 200);
+  ctx.font = "50px pixelregular";
+  ctx.textAlign = "center";
+  ctx.fillText(`GAME OVER`, 200, 250);
+
+  ctx.fillStyle = "black";
+  ctx.font = "25px pixelregular";
+  ctx.textAlign = "center";
+  ctx.fillText(
+    `RELOAD TO
+  PLAY AGAIN`,
+    200,
+    350
+  );
 }
 
-if (isGameOver) gameOver();
+game = setInterval(drawSnake, 200);
