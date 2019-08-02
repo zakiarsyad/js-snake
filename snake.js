@@ -28,6 +28,19 @@ let isGameOver = false;
 
 let move;
 
+document.addEventListener("keydown", function(event) {
+  let key = event.keyCode;
+  if (key == 37 && move != "RIGHT") {
+    move = "LEFT";
+  } else if (key == 38 && move != "DOWN") {
+    move = "UP";
+  } else if (key == 39 && move != "LEFT") {
+    move = "RIGHT";
+  } else if (key == 40 && move != "UP") {
+    move = "DOWN";
+  }
+});
+
 let up = document.getElementById("up");
 let left = document.getElementById("left");
 let right = document.getElementById("right");
