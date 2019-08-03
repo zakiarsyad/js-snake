@@ -1,6 +1,7 @@
 # js-snake
 
-**js-snake** is a classic snake game that a lot of us were addicted to playing on our cellphones. It builded using HTML, CSS, and Vanilla Javascript
+**js-snake** is a classic snake game that a lot of us were addicted to playing on our cellphones.
+It build using HTML, CSS, and Vanilla Javascript
 
 
 
