@@ -16,4 +16,5 @@
 - The snake is looking for food
 - If you eat one, the snake will get longer
 - If you hit the wall or your tail, the game will be over
+- Just reload the page, if you want to play more
 - Eat the food as many as you can, and don't hit it
