@@ -13,7 +13,7 @@ It build using HTML, CSS, and Vanilla Javascript
 
 [**How to play**]
 - If you are in mobile phone, move the snake by touch the arrow button
-- Or use your keyboard arrow key to control it
+- Or you can use your keyboard arrow key to control it
 - The snake is looking for food
 - If you eat one, the snake will get longer
 - If you hit the wall or your tail, the game will be over
