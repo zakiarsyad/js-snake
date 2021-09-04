@@ -5,7 +5,7 @@ It build using HTML, CSS, and Vanilla Javascript
 
 
 
-[**Play The Game**] **https://zakiarsyad.github.io/js-snake/**
+[**Play The Game**] **[click here](https://unruffled-minsky-983232.netlify.app/)**
 
 <img src="./screenshot/mainPage.png" width="150"> <img src="./screenshot/play.png" width="150"> <img src="./screenshot/gameOver.png" width="150">
 
